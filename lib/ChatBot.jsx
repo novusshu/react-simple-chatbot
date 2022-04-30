@@ -54,7 +54,7 @@ class ChatBot extends Component {
       defaultUserSettings: {},
     };
 
-    this.speak = speakFn(props.speechSynthesis);
+    this.speak = speakFn({ enalbe: opened, ...props.speechSynthesis });
   }
 
   componentDidMount() {
@@ -760,7 +760,7 @@ ChatBot.propTypes = {
   recognitionLang: PropTypes.string,
   recognitionPlaceholder: PropTypes.string,
   speechSynthesis: PropTypes.shape({
-    enable: PropTypes.bool,
+    // enable: PropTypes.bool,
     lang: PropTypes.string,
     voice:
       typeof window !== 'undefined'
@@ -811,7 +811,7 @@ ChatBot.defaultProps = {
   recognitionLang: 'en',
   recognitionPlaceholder: 'Listening ...',
   speechSynthesis: {
-    enable: opened,
+    // enable: false,
     lang: 'en',
     voice: null,
   },
